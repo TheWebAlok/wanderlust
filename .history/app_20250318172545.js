@@ -128,14 +128,9 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error.ejs", { message });
 });
 
-const PORT = process.env.PORT || 8088;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(8088, () => {
+  console.log("server is listen on port ");
 });
-// app.listen(8088, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
 
 // // Your route
 // app.post("/listings", async (req, res) => {
