@@ -1,4 +1,5 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:27017/wanderlust';
 
 require("dotenv").config();
 console.log("DB URL:", process.env.ATLASDB_URL);
@@ -32,6 +33,13 @@ const User = require("./models/user.js");
 
 
 const dbUrl = process.env.ATLASDB_URL;
+
+
+async function main() {
+  if (!dbUrl) {
+    throw new Error("⚠️ ATLASDB_URL is not defined. Check your .env file.");
+  }
+}
 
 main()
   .then(() => console.log("✅ MongoDB connection successful"))
